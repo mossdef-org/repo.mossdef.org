@@ -17,7 +17,7 @@ router provides everything.
 
 ## Keys
 
-- `apk.mossdef.org.pem` — apk signing public key.
+- `repo.mossdef.org.pem` — apk signing public key.
 - `stangri.pub` — usign public key for the legacy opkg (`.ipk`) feeds.
 
 Documentation: <https://docs.mossdef.org>
