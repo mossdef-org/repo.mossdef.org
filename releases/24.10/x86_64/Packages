@@ -1,0 +1,134 @@
+Package: adblock-fast
+Version: 1.2.4-r4
+Depends: libc, curl, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
+License: AGPL-3.0-or-later
+Section: net
+URL: https://github.com/mossdef-org/adblock-fast/
+CPE-ID: cpe:/a:mossdef:adblock-fast
+Architecture: all
+Installed-Size: 143360
+Filename: adblock-fast-1.2.4-4.ipk
+Size: 31404
+SHA256sum: 3eae271c9467f5b87b616c54d9984f5cd727bf646df9ded5dd6be53a0e5fa647
+Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
+ Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
+ Please see https://docs.mossdef.org/adblock-fast/ for more information.
+
+Package: https-dns-proxy
+Version: 2026.03.18-r4
+Depends: libc, libcares, libcurl4, libev, ca-bundle, jsonfilter, resolveip
+Conflicts: https_dns_proxy
+License: MIT
+Section: net
+URL: https://github.com/mossdef-org/https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:https-dns-proxy
+Architecture: x86_64
+Installed-Size: 102400
+Filename: https-dns-proxy-2026.03.18-4.ipk
+Size: 33704
+SHA256sum: d443bb198c824ce539fadee08d841b1fcf41d833ba2b21fcf9d9ab5ceec7b283
+Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
+ It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
+ Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
+
+Package: luci-app-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
+Architecture: all
+Installed-Size: 92160
+Filename: luci-app-adblock-fast-1.2.4-4.ipk
+Size: 20398
+SHA256sum: 0a5675c11ee73b895f05cafa7c119465066ce7f810b475c5fa88d0fa545736d1
+Description:  Provides Web UI for adblock-fast service.
+
+Package: luci-app-advanced-reboot
+Version: 1.1.2-r8
+Depends: libc, luci-base, jshn
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://github.com/mossdef-org/luci-app-advanced-reboot/
+CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-advanced-reboot-1.1.2-8.ipk
+Size: 13117
+SHA256sum: 8ca582d1b17f424925f5a902f44174eeea59a5cf9cc6b8367e82825541d81eef
+Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
+
+Package: luci-app-https-dns-proxy
+Version: 2026.03.18-r4
+Depends: libc, luci-base, https-dns-proxy
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://github.com/mossdef-org/luci-app-https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-https-dns-proxy-2026.03.18-4.ipk
+Size: 12396
+SHA256sum: 6b6d0133c56aa80198bf3d8ea019a9be0a6c36549ba22c7d725fd7ae9f5a1ff5
+Description:  Provides Web UI for DNS Over HTTPS Proxy
+
+Package: luci-app-yaaw
+Version: 1.0.0-r3
+Depends: libc, luci-base
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://github.com/mossdef-org/luci-app-yaaw/
+Architecture: all
+Installed-Size: 481280
+Filename: luci-app-yaaw-1.0.0-3.ipk
+Size: 127062
+SHA256sum: 9073b99226947b40f44bb61f0f2ad6f8f20d36ee3865e224f94676ad7a1f7e7b
+Description:  Provides Web UI for Yet Another Aria2c.
+
+Package: moci-addon-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, moci, adblock-fast, rpcd-mod-ucode
+License: AGPL-3.0-or-later
+Section: admin
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+Architecture: all
+Installed-Size: 92160
+Filename: moci-addon-adblock-fast-1.2.4-4.ipk
+Size: 22554
+SHA256sum: c48449b827dd88ea90d4c65519de895ecaabb28add7546daa6b3185cfbf681be
+Description:  MoCI add-on providing a web UI for the adblock-fast service.
+ Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
+ rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
+ equivalent of luci-app-adblock-fast.
+
+Package: mwan4
+Version: 0.1.1-r4
+Depends: libc, conntrack, ip-full, jsonfilter, kmod-nft-core, kmod-nft-nat, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop, nftables-json, rpcd-mod-ucode
+Conflicts: mwan3
+License: AGPL-3.0-or-later
+Section: net
+URL: https://github.com/mossdef-org/mwan4/
+Architecture: x86_64
+Installed-Size: 143360
+Filename: mwan4-0.1.1-4.ipk
+Size: 29882
+SHA256sum: c834d5458d4aaf5a09d650629036f6384985879b112471cc2d35242fc6bcf839
+Description:  Multiwan hotplug script with connection tracking support using nftables.
+ Supports loadbalancing/failover for up to 254 WAN interfaces with
+ firewall4/nftables integration.
+
+Package: libstfl
+Version: 0.24-r1
+Depends: libc, libncursesw6
+License: LGPL-3.0-or-later
+Section: libs
+URL: https://github.com/newsboat/stfl
+Architecture: x86_64
+Installed-Size: 71680
+Filename: stfl-0.24-1.ipk
+Size: 27754
+SHA256sum: 4eb187d3baa51cde9f2e43cf17b359e7d90bb5408f6ed022b9a884be7bf8f894
+Description:  STFL is a library which implements a curses-based widget set for text
+ terminals. This is the Newsboat-maintained fork of the original STFL.
+
