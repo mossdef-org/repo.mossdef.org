@@ -118,17 +118,3 @@ Description:  Multiwan hotplug script with connection tracking support using nft
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.
 
-Package: libstfl
-Version: 0.24-r1
-Depends: libc, libncursesw6
-License: LGPL-3.0-or-later
-Section: libs
-URL: https://github.com/newsboat/stfl
-Architecture: arm_cortex-a9
-Installed-Size: 61440
-Filename: stfl-0.24-1.ipk
-Size: 25606
-SHA256sum: aca6adbfe33df7c0bdba7348b8ad471514ae1924b731d4b830d875759cd8d6a9
-Description:  STFL is a library which implements a curses-based widget set for text
- terminals. This is the Newsboat-maintained fork of the original STFL.
-
