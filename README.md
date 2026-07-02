@@ -1,23 +1,7 @@
-# MOSSDeF OpenWrt package repository
+# MOSSDeF OpenWrt packages repo
 
-Unified binary package repo for [MOSSDeF](https://docs.mossdef.org) OpenWrt packages.
+This is the unified package repo for the OpenWrt packages maintained under MOSSDeF (Melmac Open Source Software Development Foundation). It serves both apk binaries (OpenWrt 25.12 and newer) and opkg/ipk binaries (OpenWrt 24.10). For more information check out [documentation](https://docs.mossdef.org) or [browse packages' binaries at GitHub](https://github.com/mossdef-org/repo.mossdef.org).
 
-## Layout
+<!-- markdownlint-disable MD033 -->
 
-```
-releases/<openwrt-version>/<arch>/
-```
-
-- `releases/25.12/<arch>/` — apk packages + signed `packages.adb` index (OpenWrt 25.12+).
-- `releases/24.10/<arch>/` — opkg `.ipk` packages + `Packages` index (OpenWrt 24.10, frozen).
-
-`<arch>` matches the OpenWrt target architecture string exactly. Architecture-independent
-(`arch:all`) packages are duplicated into every arch directory so a single feed line per
-router provides everything.
-
-## Keys
-
-- `repo.mossdef.org.pem` — apk signing public key.
-- `stangri.pub` — usign public key for the legacy opkg (`.ipk`) feeds.
-
-Documentation: <https://docs.mossdef.org>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0604edb4340d43f7882211fe581bdfdd"}'></script>
