@@ -41,8 +41,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
 Filename: luci-app-adblock-fast-1.2.4-4.ipk
-Size: 20398
-SHA256sum: 0a5675c11ee73b895f05cafa7c119465066ce7f810b475c5fa88d0fa545736d1
+Size: 20403
+SHA256sum: 2e81e4e564998295af5ea0892b6e6b635374dbaf04cf3451e94a0da02ed7e654
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-advanced-reboot
@@ -55,8 +55,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
 Architecture: all
 Installed-Size: 71680
 Filename: luci-app-advanced-reboot-1.1.2-8.ipk
-Size: 13117
-SHA256sum: 8ca582d1b17f424925f5a902f44174eeea59a5cf9cc6b8367e82825541d81eef
+Size: 13120
+SHA256sum: 12d0ad18cdc1f8e14d7b34b460b40de0847a2d6b8faf8afd0e285076d49cdf68
 Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
 
 Package: luci-app-https-dns-proxy
@@ -82,8 +82,8 @@ URL: https://github.com/mossdef-org/luci-app-yaaw/
 Architecture: all
 Installed-Size: 481280
 Filename: luci-app-yaaw-1.0.0-3.ipk
-Size: 127062
-SHA256sum: 9073b99226947b40f44bb61f0f2ad6f8f20d36ee3865e224f94676ad7a1f7e7b
+Size: 127063
+SHA256sum: 328dba488cf9765462487215d151e142e8aecadb95211f16a9db54fa0d98f984
 Description:  Provides Web UI for Yet Another Aria2c.
 
 Package: moci-addon-adblock-fast
@@ -95,8 +95,8 @@ URL: https://github.com/mossdef-org/luci-app-adblock-fast/
 Architecture: all
 Installed-Size: 92160
 Filename: moci-addon-adblock-fast-1.2.4-4.ipk
-Size: 22554
-SHA256sum: c48449b827dd88ea90d4c65519de895ecaabb28add7546daa6b3185cfbf681be
+Size: 22546
+SHA256sum: 8bfd70d2aac2703d9a6f417e270fdc4cdc5dbeb4f305f5437f78bd8d5032862e
 Description:  MoCI add-on providing a web UI for the adblock-fast service.
  Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
  rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
