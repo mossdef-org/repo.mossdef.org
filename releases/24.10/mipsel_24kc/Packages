@@ -8,8 +8,8 @@ CPE-ID: cpe:/a:mossdef:adblock-fast
 Architecture: all
 Installed-Size: 143360
 Filename: adblock-fast-1.2.4-4.ipk
-Size: 31404
-SHA256sum: 3eae271c9467f5b87b616c54d9984f5cd727bf646df9ded5dd6be53a0e5fa647
+Size: 31400
+SHA256sum: d44e32e9d9eafaa82e1394cfa587d80d4b7301ce973194e4162e9a4f971e7898
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
