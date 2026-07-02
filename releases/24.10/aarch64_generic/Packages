@@ -69,8 +69,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
 Architecture: all
 Installed-Size: 71680
 Filename: luci-app-https-dns-proxy-2026.03.18-4.ipk
-Size: 12396
-SHA256sum: 6b6d0133c56aa80198bf3d8ea019a9be0a6c36549ba22c7d725fd7ae9f5a1ff5
+Size: 12399
+SHA256sum: c7826ffb9b848550ddf1cee9d2d7684625f937294e224b7bae9b8d99e4838482
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-yaaw
@@ -112,8 +112,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: aarch64_generic
 Installed-Size: 194560
 Filename: mwan4-0.1.1-4.ipk
-Size: 30305
-SHA256sum: 78446e26b6ae48fab6e0f9bd02ce0a8ce66d00e5cbf8ed268a98da94da1cc175
+Size: 30314
+SHA256sum: 908cc0de912db2bfe86345dea1d8973db98545877bc4ecbedc77fba4e0df8f03
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.
