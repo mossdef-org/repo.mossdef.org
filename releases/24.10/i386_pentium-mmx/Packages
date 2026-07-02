@@ -14,6 +14,23 @@ Description:  Fast AdBlocking script to block ad or abuse/malware domains with D
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
 
+Package: https-dns-proxy
+Version: 2026.03.18-r4
+Depends: libc, libcares, libcurl4, libev, ca-bundle, jsonfilter, resolveip
+Conflicts: https_dns_proxy
+License: MIT
+Section: net
+URL: https://github.com/mossdef-org/https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:https-dns-proxy
+Architecture: i386_pentium-mmx
+Installed-Size: 102400
+Filename: https-dns-proxy-2026.03.18-4.ipk
+Size: 35802
+SHA256sum: de8bb6b03f12555488c1b4ac5f1416611df0acbdca2e92f8f8fefeed3d4e5e9f
+Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
+ It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
+ Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
+
 Package: luci-app-adblock-fast
 Version: 1.2.4-r4
 Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
