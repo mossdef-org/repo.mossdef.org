@@ -1,0 +1,22 @@
+# Exceptions to the auto-discovered package set.
+#
+# scripts/sync.sh publishes every mossdef-org repo that carries
+# .github/workflows/openwrt-release.yml. Repos not mentioned here use the
+# defaults: gating branch "main", and both release lines [25.12, 24.10].
+# A newly added package therefore joins automatically with those defaults.
+#
+# Only list the exceptions:
+
+exclude:            # discovered, but never published to repo.mossdef.org
+  - remote-agent
+  - remote-controller
+  - netclient
+
+branch:             # gating branch when it isn't "main" (even = stable for pbr)
+  pbr: "1.2.2"
+  luci-app-pbr: "1.2.2"
+  sunwait: "0.9.1"
+
+only_2512:          # publish the 25.12 apk line only (skip the 24.10 opkg line)
+  - newsboat
+  - stfl

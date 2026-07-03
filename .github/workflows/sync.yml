@@ -1,0 +1,91 @@
+name: Sync package repo
+
+# Rebuilds repo.mossdef.org from the package repos' GitHub Releases:
+# gate each package's latest run, pull its release assets, sort by arch, fan
+# arch:all, GC dropped arch/line binaries, reindex+sign changed dirs, commit+push.
+#
+# Triggers: hourly poll, manual (with an optional dry-run), and event-driven —
+# a package's release job fires `repository_dispatch: package-released`.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Log intended changes without committing/pushing'
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [package-released]
+
+# Single writer: never let two syncs race on the same working tree.
+concurrency:
+  group: sync-repo
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  SDK_VERSION: "25.12.5"
+  SDK_TARGET_PATH: "x86/64"        # any target's SDK ships the host tools we need
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo.mossdef.org
+        uses: actions/checkout@v5
+
+      - name: Cache OpenWrt SDK host tools
+        id: toolcache
+        uses: actions/cache@v4
+        with:
+          path: .sdktools
+          key: sdktools-${{ env.SDK_VERSION }}-${{ env.SDK_TARGET_PATH }}
+
+      - name: Fetch OpenWrt host tools (apk/mkhash/usign + ipkg-make-index.sh)
+        if: steps.toolcache.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          base="https://downloads.openwrt.org/releases/${SDK_VERSION}/targets/${SDK_TARGET_PATH}"
+          sdk=$(curl -fsSL "$base/sha256sums" | grep -oE 'openwrt-sdk-[^ ]*\.Linux-x86_64\.tar\.zst' | head -n1)
+          [ -n "$sdk" ] || { echo "could not resolve SDK filename from $base/sha256sums"; exit 1; }
+          echo "Downloading $sdk"
+          curl -fsSL "$base/$sdk" -o sdk.tar.zst
+          mkdir -p .sdktools
+          # Extract only the host tools we use (bin + libs they may need) and the index script.
+          tar -I 'zstd -d' -xf sdk.tar.zst -C .sdktools --strip-components=1 --wildcards \
+            '*/staging_dir/host/bin/apk' \
+            '*/staging_dir/host/bin/mkhash' \
+            '*/staging_dir/host/bin/usign' \
+            '*/staging_dir/host/lib' \
+            '*/scripts/ipkg-make-index.sh'
+          rm -f sdk.tar.zst
+          echo "extracted:"; find .sdktools -maxdepth 3 -type f | sort
+
+      - name: Resolve tool paths
+        run: |
+          set -euo pipefail
+          echo "APK_BIN=$(find "$PWD/.sdktools" -type f -name apk    | head -n1)" >> "$GITHUB_ENV"
+          echo "MKHASH=$(find "$PWD/.sdktools" -type f -name mkhash  | head -n1)" >> "$GITHUB_ENV"
+          echo "USIGN=$(find "$PWD/.sdktools" -type f -name usign    | head -n1)" >> "$GITHUB_ENV"
+          echo "MKINDEX=$(find "$PWD/.sdktools" -type f -name ipkg-make-index.sh | head -n1)" >> "$GITHUB_ENV"
+
+      - name: Write signing keys
+        env:
+          REPO_APK_KEY: ${{ secrets.REPO_APK_KEY }}
+          IPK_KEY: ${{ secrets.IPK_KEY }}
+        run: |
+          set -euo pipefail
+          umask 077
+          printf '%s' "$REPO_APK_KEY" > "$RUNNER_TEMP/apk.key"
+          printf '%s' "${IPK_KEY:-}"  > "$RUNNER_TEMP/usign.key"
+          echo "APK_KEY=$RUNNER_TEMP/apk.key" >> "$GITHUB_ENV"
+          echo "IPK_KEY=$RUNNER_TEMP/usign.key" >> "$GITHUB_ENV"
+
+      - name: Sync
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '' }}
+        run: bash scripts/sync.sh
