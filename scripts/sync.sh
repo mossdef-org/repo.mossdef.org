@@ -25,9 +25,10 @@ set -uo pipefail
 ### ----------------------------------------------------------------- config
 REPO_DIR="${REPO_DIR:-${GITHUB_WORKSPACE:-$PWD}}"
 readonly REPO_DIR
-readonly ORG="${ORG:-mossdef-org}"
-readonly WORKFLOW="${WORKFLOW:-openwrt-release.yml}"
-readonly PACKAGES_YML="${PACKAGES_YML:-${REPO_DIR}/scripts/packages.yml}"
+# exported (not readonly) so the discover() python subprocess inherits them
+export ORG="${ORG:-mossdef-org}"
+export WORKFLOW="${WORKFLOW:-openwrt-release.yml}"
+export PACKAGES_YML="${PACKAGES_YML:-${REPO_DIR}/scripts/packages.yml}"
 readonly GIT_NAME="${GIT_NAME:-github-actions[bot]}"
 readonly GIT_EMAIL="${GIT_EMAIL:-41898282+github-actions[bot]@users.noreply.github.com}"
 readonly DRY_RUN="${DRY_RUN:-}"
@@ -57,7 +58,7 @@ command -v python3 >/dev/null 2>&1   || die "python3 not found"
 # Dynamic: every ORG repo with WORKFLOW, minus packages.yml `exclude`, with
 # per-repo `branch` and `only_2512` overrides (defaults: main / "25.12,24.10").
 discover(){
-  ORG="$ORG" WORKFLOW="$WORKFLOW" PACKAGES_YML="$PACKAGES_YML" python3 - <<'PY'
+  python3 - <<'PY'
 import os, json, subprocess, sys
 
 org = os.environ["ORG"]; wf = os.environ["WORKFLOW"]; yml = os.environ["PACKAGES_YML"]
@@ -66,18 +67,19 @@ def gh(*args):
     r = subprocess.run(["gh", *args], capture_output=True, text=True)
     return r.stdout if r.returncode == 0 else ""
 
-# minimal YAML reader for our tiny, flat exceptions file (no external yq dependency)
+# minimal YAML reader for our tiny, flat exceptions file (no external yq dependency).
+# Inline comments are stripped, so `exclude:  # note` is still recognised.
 def load_yaml(path):
     data = {"exclude": [], "only_2512": [], "branch": {}}
     if not os.path.exists(path):
         return data
     section = None
     for raw in open(path):
-        line = raw.rstrip("\n")
-        if not line.strip() or line.strip().startswith("#"):
+        line = raw.split("#", 1)[0].rstrip()      # drop inline comment + trailing ws
+        if not line.strip():
             continue
-        if not line.startswith(" ") and line.rstrip().endswith(":"):
-            section = line.strip()[:-1]; continue
+        if not line[:1].isspace() and line.endswith(":"):
+            section = line[:-1].strip(); continue
         item = line.strip()
         if section in ("exclude", "only_2512") and item.startswith("- "):
             data[section].append(item[2:].strip().strip('"\''))
@@ -88,8 +90,8 @@ def load_yaml(path):
 
 exc = load_yaml(yml)
 
-# list all org repos (paginated)
-names = []
+# list all org repos with their default branch (paginated)
+repos = {}
 page = 1
 while True:
     out = gh("api", f"/orgs/{org}/repos?per_page=100&page={page}")
@@ -99,19 +101,22 @@ while True:
         arr = []
     if not arr:
         break
-    names += [r["name"] for r in arr]
+    for r in arr:
+        repos[r["name"]] = r.get("default_branch", "main")
     if len(arr) < 100:
         break
     page += 1
 
 work = []
-for name in sorted(set(names)):
+for name in sorted(repos):
     if name in exc["exclude"]:
         continue
-    # keep only repos that actually carry the package build workflow
-    if not gh("api", f"/repos/{org}/{name}/contents/.github/workflows/{wf}", "--jq", ".name"):
+    # branch we gate/pull from: an explicit override, else the repo's default.
+    # (pbr/luci-app-pbr/sunwait keep the build workflow on a version branch, not main.)
+    branch = exc["branch"].get(name, repos[name])
+    # keep only repos that actually carry the package build workflow on that branch
+    if not gh("api", f"/repos/{org}/{name}/contents/.github/workflows/{wf}?ref={branch}", "--jq", ".name"):
         continue
-    branch = exc["branch"].get(name, "main")
     lines = "25.12" if name in exc["only_2512"] else "25.12,24.10"
     work.append(f"{org}/{name}\t{branch}\t{lines}")
 
@@ -283,7 +288,7 @@ done
 
 ### 3. commit + push (no force)
 cd "$REPO_DIR" || die "cannot cd ${REPO_DIR}"
-git add -A
+git add -A releases    # sync only ever changes releases/ — never stage CI scratch
 if git diff --cached --quiet; then log "no changes — nothing to publish"; exit 0; fi
 summary="$(printf '%s\n' "${CHANGED_PKGS[@]}" | sort -u | paste -sd, -)"
 msg="$(date +%F): sync — ${summary:-update}"

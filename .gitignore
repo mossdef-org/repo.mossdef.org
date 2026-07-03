@@ -1,0 +1,3 @@
+# CI sync workflow scratch (OpenWrt host tools cache + SDK download) — never commit
+.sdktools/
+sdk.tar.zst
