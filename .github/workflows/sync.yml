@@ -67,14 +67,26 @@ jobs:
       - name: Resolve tool paths
         run: |
           set -euo pipefail
-          hostlib="$(find "$PWD/.sdktools" -type d -path '*/staging_dir/host/lib' | head -n1)"
-          echo "APK_BIN=$(find "$PWD/.sdktools" -type f -name apk    | head -n1)" >> "$GITHUB_ENV"
-          echo "MKHASH=$(find "$PWD/.sdktools" -type f -name mkhash  | head -n1)" >> "$GITHUB_ENV"
-          echo "USIGN=$(find "$PWD/.sdktools" -type f -name usign    | head -n1)" >> "$GITHUB_ENV"
-          echo "MKINDEX=$(find "$PWD/.sdktools" -type f -name ipkg-make-index.sh | head -n1)" >> "$GITHUB_ENV"
-          # the SDK host tools are dynamically linked against libs shipped in
-          # staging_dir/host/lib — put it on the loader path so they run standalone
-          echo "LD_LIBRARY_PATH=${hostlib}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" >> "$GITHUB_ENV"
+          root="$PWD/.sdktools"
+          hostlib="$(find "$root" -type d -path '*/staging_dir/host/lib' | head -n1)"
+          loader="$(find "$hostlib" -maxdepth 1 -name 'ld-linux*' | head -n1)"
+          [ -n "$loader" ] || { echo "no ld-linux loader under $hostlib"; exit 1; }
+          # The SDK host tools ship their OWN glibc in host/lib. Run each through the
+          # SDK loader with --library-path so that libc is confined to the tool
+          # process — putting host/lib on the global LD_LIBRARY_PATH breaks system
+          # binaries (bash). Wrappers keep sync.sh tool-agnostic.
+          mkdir -p "$root/wrap"
+          for t in apk mkhash usign; do
+            real="$(find "$root" -type f -path '*/host/bin/'"$t" | head -n1)"
+            { echo '#!/bin/sh'; echo "exec \"$loader\" --library-path \"$hostlib\" \"$real\" \"\$@\""; } > "$root/wrap/$t"
+            chmod +x "$root/wrap/$t"
+          done
+          {
+            echo "APK_BIN=$root/wrap/apk"
+            echo "MKHASH=$root/wrap/mkhash"
+            echo "USIGN=$root/wrap/usign"
+            echo "MKINDEX=$(find "$root" -type f -name ipkg-make-index.sh | head -n1)"
+          } >> "$GITHUB_ENV"
 
       - name: Write signing keys
         env:
@@ -91,8 +103,6 @@ jobs:
       - name: Tool self-test (diagnostic)
         run: |
           set +e
-          echo "== interpreter / libs =="; file "$APK_BIN"; echo "--- ldd apk ---"; ldd "$APK_BIN"
-          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
           echo "== apk --version =="; "$APK_BIN" --version; echo "  rc=$?"
           echo "== usign =="; "$USIGN" 2>&1 | head -3; echo "  rc=$?"
           echo "== mkndx smoke test =="
