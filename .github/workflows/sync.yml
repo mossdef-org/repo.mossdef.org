@@ -42,7 +42,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .sdktools
-          key: sdktools-${{ env.SDK_VERSION }}-${{ env.SDK_TARGET_PATH }}
+          key: sdktools-${{ env.SDK_VERSION }}-${{ env.SDK_TARGET_PATH }}-v2
 
       - name: Fetch OpenWrt host tools (apk/mkhash/usign + ipkg-make-index.sh)
         if: steps.toolcache.outputs.cache-hit != 'true'
@@ -54,38 +54,31 @@ jobs:
           echo "Downloading $sdk"
           curl -fsSL "$base/$sdk" -o sdk.tar.zst
           mkdir -p .sdktools
-          # Extract only the host tools we use (bin + libs they may need) and the index script.
+          # host/bin/{apk,mkhash,usign} are wrapper scripts that exec a hidden real
+          # binary (.apk.bin …) through host/lib's own loader. Extract the wrappers,
+          # the .*.bin payloads, the whole host/lib (loader + bundled glibc + runas.so),
+          # and the opkg index script.
           tar -I 'zstd -d' -xf sdk.tar.zst -C .sdktools --strip-components=1 --wildcards \
-            '*/staging_dir/host/bin/apk' \
-            '*/staging_dir/host/bin/mkhash' \
-            '*/staging_dir/host/bin/usign' \
+            '*/staging_dir/host/bin/apk'      '*/staging_dir/host/bin/.apk.bin' \
+            '*/staging_dir/host/bin/mkhash'   '*/staging_dir/host/bin/.mkhash.bin' \
+            '*/staging_dir/host/bin/usign'    '*/staging_dir/host/bin/.usign.bin' \
             '*/staging_dir/host/lib' \
             '*/scripts/ipkg-make-index.sh'
           rm -f sdk.tar.zst
-          echo "extracted:"; find .sdktools -maxdepth 3 -type f | sort
+          echo "extracted:"; find .sdktools \( -type f -o -type l \) | sort
 
       - name: Resolve tool paths
         run: |
           set -euo pipefail
           root="$PWD/.sdktools"
-          hostlib="$(find "$root" -type d -path '*/staging_dir/host/lib' | head -n1)"
-          loader="$(find "$hostlib" -maxdepth 1 -name 'ld-linux*' | head -n1)"
-          [ -n "$loader" ] || { echo "no ld-linux loader under $hostlib"; exit 1; }
-          # The SDK host tools ship their OWN glibc in host/lib. Run each through the
-          # SDK loader with --library-path so that libc is confined to the tool
-          # process — putting host/lib on the global LD_LIBRARY_PATH breaks system
-          # binaries (bash). Wrappers keep sync.sh tool-agnostic.
-          mkdir -p "$root/wrap"
-          for t in apk mkhash usign; do
-            real="$(find "$root" -type f -path '*/host/bin/'"$t" | head -n1)"
-            { echo '#!/bin/sh'; echo "exec \"$loader\" --library-path \"$hostlib\" \"$real\" \"\$@\""; } > "$root/wrap/$t"
-            chmod +x "$root/wrap/$t"
-          done
+          # Point directly at the SDK's own wrapper scripts — they already invoke
+          # their bundled loader + glibc via paths relative to themselves, so libc
+          # stays confined to the tool process.
           {
-            echo "APK_BIN=$root/wrap/apk"
-            echo "MKHASH=$root/wrap/mkhash"
-            echo "USIGN=$root/wrap/usign"
-            echo "MKINDEX=$(find "$root" -type f -name ipkg-make-index.sh | head -n1)"
+            echo "APK_BIN=$(find "$root" -type f -path '*/host/bin/apk'    | head -n1)"
+            echo "MKHASH=$(find "$root" -type f -path '*/host/bin/mkhash'  | head -n1)"
+            echo "USIGN=$(find "$root" -type f -path '*/host/bin/usign'    | head -n1)"
+            echo "MKINDEX=$(find "$root" -type f -name ipkg-make-index.sh  | head -n1)"
           } >> "$GITHUB_ENV"
 
       - name: Write signing keys
