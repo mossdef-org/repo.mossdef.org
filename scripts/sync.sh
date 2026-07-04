@@ -49,6 +49,10 @@ command -v python3 >/dev/null 2>&1   || die "python3 not found"
 [ -n "${MKHASH:-}" ]  && [ -x "$MKHASH" ]  || die "mkhash not found: ${MKHASH:-unset}"
 [ -n "${USIGN:-}" ]   && [ -x "$USIGN" ]   || die "usign not found: ${USIGN:-unset}"
 [ -n "${MKINDEX:-}" ] && [ -f "$MKINDEX" ] || die "ipkg-make-index.sh not found: ${MKINDEX:-unset}"
+# tools must actually RUN (catches loader/bundled-glibc breakage before we publish
+# broken/missing indexes) — not just exist. All three share the same wrapper+loader
+# mechanism, so apk running proves it works.
+"$APK_BIN" --version >/dev/null 2>&1 || die "host tools not runnable (loader/lib issue?): $APK_BIN"
 [ -f "${APK_KEY:-}" ] || die "apk signing key not found: ${APK_KEY:-unset}"
 [ -f "${IPK_KEY:-}" ] || log "WARN: usign key not found (${IPK_KEY:-unset}) — 24.10 opkg signing will fail if any 24.10 package is published"
 [ -d "${REPO_DIR}/.git" ] || die "not a git checkout: ${REPO_DIR}"

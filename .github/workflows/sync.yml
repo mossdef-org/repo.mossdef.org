@@ -93,19 +93,6 @@ jobs:
           echo "APK_KEY=$RUNNER_TEMP/apk.key" >> "$GITHUB_ENV"
           echo "IPK_KEY=$RUNNER_TEMP/usign.key" >> "$GITHUB_ENV"
 
-      - name: Tool self-test (diagnostic)
-        run: |
-          set +e
-          echo "== apk --version =="; "$APK_BIN" --version; echo "  rc=$?"
-          echo "== usign =="; "$USIGN" 2>&1 | head -3; echo "  rc=$?"
-          echo "== mkndx smoke test =="
-          d="$RUNNER_TEMP/mkndx"; mkdir -p "$d"
-          f="$(find releases/25.12 -name '*.apk' | head -1)"; echo "sample apk: $f"; cp "$f" "$d/" 2>/dev/null
-          ( cd "$d" && "$APK_BIN" mkndx --allow-untrusted --sign-key "$APK_KEY" --output packages.adb ./*.apk ); echo "mkndx rc=$?"
-          echo "== opkg index smoke test =="
-          d2="$RUNNER_TEMP/opkg"; mkdir -p "$d2"; g="$(find releases/24.10 -name '*.ipk' | head -1)"; cp "$g" "$d2/" 2>/dev/null
-          ( cd "$d2" && MKHASH="$MKHASH" "$MKINDEX" . 2>&1 | head -c300 ); echo "opkg-index rc=$?"
-
       - name: Sync
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
