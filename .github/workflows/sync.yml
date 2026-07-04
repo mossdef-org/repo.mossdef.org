@@ -67,10 +67,14 @@ jobs:
       - name: Resolve tool paths
         run: |
           set -euo pipefail
+          hostlib="$(find "$PWD/.sdktools" -type d -path '*/staging_dir/host/lib' | head -n1)"
           echo "APK_BIN=$(find "$PWD/.sdktools" -type f -name apk    | head -n1)" >> "$GITHUB_ENV"
           echo "MKHASH=$(find "$PWD/.sdktools" -type f -name mkhash  | head -n1)" >> "$GITHUB_ENV"
           echo "USIGN=$(find "$PWD/.sdktools" -type f -name usign    | head -n1)" >> "$GITHUB_ENV"
           echo "MKINDEX=$(find "$PWD/.sdktools" -type f -name ipkg-make-index.sh | head -n1)" >> "$GITHUB_ENV"
+          # the SDK host tools are dynamically linked against libs shipped in
+          # staging_dir/host/lib — put it on the loader path so they run standalone
+          echo "LD_LIBRARY_PATH=${hostlib}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" >> "$GITHUB_ENV"
 
       - name: Write signing keys
         env:
@@ -83,6 +87,21 @@ jobs:
           printf '%s' "${IPK_KEY:-}"  > "$RUNNER_TEMP/usign.key"
           echo "APK_KEY=$RUNNER_TEMP/apk.key" >> "$GITHUB_ENV"
           echo "IPK_KEY=$RUNNER_TEMP/usign.key" >> "$GITHUB_ENV"
+
+      - name: Tool self-test (diagnostic)
+        run: |
+          set +e
+          echo "== interpreter / libs =="; file "$APK_BIN"; echo "--- ldd apk ---"; ldd "$APK_BIN"
+          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+          echo "== apk --version =="; "$APK_BIN" --version; echo "  rc=$?"
+          echo "== usign =="; "$USIGN" 2>&1 | head -3; echo "  rc=$?"
+          echo "== mkndx smoke test =="
+          d="$RUNNER_TEMP/mkndx"; mkdir -p "$d"
+          f="$(find releases/25.12 -name '*.apk' | head -1)"; echo "sample apk: $f"; cp "$f" "$d/" 2>/dev/null
+          ( cd "$d" && "$APK_BIN" mkndx --allow-untrusted --sign-key "$APK_KEY" --output packages.adb ./*.apk ); echo "mkndx rc=$?"
+          echo "== opkg index smoke test =="
+          d2="$RUNNER_TEMP/opkg"; mkdir -p "$d2"; g="$(find releases/24.10 -name '*.ipk' | head -1)"; cp "$g" "$d2/" 2>/dev/null
+          ( cd "$d2" && MKHASH="$MKHASH" "$MKINDEX" . 2>&1 | head -c300 ); echo "opkg-index rc=$?"
 
       - name: Sync
         env:
