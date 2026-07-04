@@ -12,9 +12,11 @@ exclude:            # discovered, but never published to repo.mossdef.org
   - remote-controller
   - netclient
 
-branch:             # gating branch when it isn't "main" (even = stable for pbr)
-  pbr: "1.2.2"
-  luci-app-pbr: "1.2.2"
+branch:             # gating branch when it isn't "main" — the branch whose build
+                    # produces the LATEST release (what sync publishes). pbr's latest
+                    # release currently comes from 1.2.3.
+  pbr: "1.2.3"
+  luci-app-pbr: "1.2.3"
   sunwait: "0.9.1"
 
 only_2512:          # publish the 25.12 apk line only (skip the 24.10 opkg line)
