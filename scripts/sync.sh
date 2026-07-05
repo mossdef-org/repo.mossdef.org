@@ -302,5 +302,36 @@ if [ -n "$DRY_RUN" ]; then
   exit 0
 fi
 git commit -q -m "$msg"
-git pull -q --rebase origin main || die "rebase before push failed"
-git push -q origin main && log "pushed: ${msg}" || die "push failed"
+
+# Push with optimistic locking. The workflow's concurrency group makes overlap
+# rare, not impossible (bursts of repository_dispatch can slip two runs past it).
+# When origin/main advances under us, a plain `git pull --rebase` cannot merge
+# the index files (packages.adb / Packages*): both sides rewrote the same binary
+# path. But those indexes are DERIVED — the .apk/.ipk files themselves rebase
+# cleanly (distinct filenames) — so on conflict we regenerate each affected
+# index from the now-merged package set and continue. Any conflict on a real
+# package file is unexpected (two syncs touching one file) and aborts loudly.
+push_attempts=0
+until git push -q origin main; do
+  push_attempts=$((push_attempts + 1))
+  [ "$push_attempts" -gt 5 ] && die "push failed after ${push_attempts} attempts"
+  log "push rejected — rebasing onto origin/main (attempt ${push_attempts})"
+  git fetch -q origin main || die "fetch before rebase failed"
+  if ! git rebase -q origin/main; then
+    mapfile -t conflicted < <(git diff --name-only --diff-filter=U)
+    bad="$(printf '%s\n' "${conflicted[@]}" | grep -vE '/(packages\.adb|Packages|Packages\.gz|Packages\.sig)$' || true)"
+    [ -n "$bad" ] && { git rebase --abort; die "unexpected non-index rebase conflict:"$'\n'"${bad}"; }
+    mapfile -t redirs < <(printf '%s\n' "${conflicted[@]}" | awk -F/ 'NF{NF--; print}' | sort -u)
+    for rel in "${redirs[@]}"; do
+      [ -n "$rel" ] || continue
+      archdir="${REPO_DIR}/${rel}/"
+      case "$rel" in
+        releases/24.10/*) reindex_ipk "$archdir" || die "reindex_ipk failed resolving ${rel}" ;;
+        *)                reindex_apk "$archdir" || die "reindex_apk failed resolving ${rel}" ;;
+      esac
+      git add -- "${rel}/"
+    done
+    GIT_EDITOR=true git rebase --continue || die "rebase --continue failed"
+  fi
+done
+log "pushed: ${msg}"
