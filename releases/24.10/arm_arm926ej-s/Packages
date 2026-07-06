@@ -9,7 +9,7 @@ Architecture: all
 Installed-Size: 143360
 Filename: adblock-fast-1.2.4-4.ipk
 Size: 31625
-SHA256sum: d1b7dcb6ea5efcd2d3c84b9e06585f4948361080f1eb313ff1e60745ec13c873
+SHA256sum: 4ae419d791ef1343393dccefeb0a4af33cf833b2687b25992f8b7252e5372bbe
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
