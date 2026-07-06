@@ -1,6 +1,6 @@
 Package: adblock-fast
 Version: 1.2.4-r4
-Depends: libc, curl, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
+Depends: libc, curl, ip, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/adblock-fast/
@@ -8,8 +8,8 @@ CPE-ID: cpe:/a:mossdef:adblock-fast
 Architecture: all
 Installed-Size: 143360
 Filename: adblock-fast-1.2.4-4.ipk
-Size: 31400
-SHA256sum: d44e32e9d9eafaa82e1394cfa587d80d4b7301ce973194e4162e9a4f971e7898
+Size: 31625
+SHA256sum: d1b7dcb6ea5efcd2d3c84b9e06585f4948361080f1eb313ff1e60745ec13c873
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
@@ -145,16 +145,16 @@ Description:  Multiwan hotplug script with connection tracking support using nft
  firewall4/nftables integration.
 
 Package: pbr
-Version: 1.2.3-r71
-Depends: libc, ip-full, jshn, jsonfilter, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, kmod-nft-core, kmod-nft-nat, nftables-json
+Version: 1.2.2-r19
+Depends: libc, ip-full, jshn, jsonfilter, resolveip, kmod-nft-core, kmod-nft-nat, nftables-json
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/pbr/
 Architecture: all
-Installed-Size: 225280
-Filename: pbr-1.2.3-71.ipk
-Size: 45182
-SHA256sum: 24311f28753495da1cfb768679e6e580b35d5247868c006bf2ba74bbc462bedb
+Installed-Size: 163840
+Filename: pbr-1.2.2-19.ipk
+Size: 34075
+SHA256sum: 391318cffc584511357c3c1d20cdf0081eebb22ad7d6e258d03c28b7b35ea101
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
