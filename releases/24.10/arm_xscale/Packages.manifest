@@ -1,0 +1,302 @@
+Package: adblock-fast
+Version: 1.2.4-r4
+Depends: libc, curl, ip, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
+Source: /feed/adblock-fast
+SourceName: adblock-fast
+License: AGPL-3.0-or-later
+Section: net
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/adblock-fast/
+CPE-ID: cpe:/a:mossdef:adblock-fast
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 143360
+Filename: adblock-fast-1.2.4-4.ipk
+Size: 31625
+SHA256sum: 4ae419d791ef1343393dccefeb0a4af33cf833b2687b25992f8b7252e5372bbe
+Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
+ Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
+ Please see https://docs.mossdef.org/adblock-fast/ for more information.
+
+Package: adblock-fast
+Version: 1.2.4-r4
+Depends: libc, curl, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
+Source: feeds/packages/stangri/adblock-fast
+SourceName: adblock-fast
+License: AGPL-3.0-or-later
+Section: net
+SourceDateEpoch: 1773709139
+URL: https://github.com/mossdef-org/adblock-fast/
+CPE-ID: cpe:/a:mossdef:adblock-fast
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 143360
+Filename: adblock-fast_1.2.4-r4_all.ipk
+Size: 31397
+SHA256sum: d935edc05fe60b3ae458781e380c6c2775398891ff9e6146339dbf0416d83444
+Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
+ Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
+ Please see https://docs.mossdef.org/adblock-fast/ for more information.
+
+Package: https-dns-proxy
+Version: 2026.03.18-r5
+Depends: libc, libcares, libcurl4, libev, ca-bundle, jsonfilter, resolveip
+Conflicts: https_dns_proxy
+Source: /feed/https-dns-proxy
+SourceName: https-dns-proxy
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:https-dns-proxy
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: arm_xscale
+Installed-Size: 92160
+Filename: https-dns-proxy-2026.03.18-5.ipk
+Size: 33447
+SHA256sum: 82ee7b5a63d9559a14306abb32a10c33a54cd639384fd93bc6f1cfdf9dedb81d
+Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
+ It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
+ Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
+
+Package: luci-app-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
+Source: /feed/luci/applications/luci-app-adblock-fast
+SourceName: luci-app-adblock-fast
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 92160
+Filename: luci-app-adblock-fast-1.2.4-4.ipk
+Size: 20403
+SHA256sum: 2e81e4e564998295af5ea0892b6e6b635374dbaf04cf3451e94a0da02ed7e654
+Description:  Provides Web UI for adblock-fast service.
+
+Package: luci-app-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
+Source: feeds/base/luci/applications/luci-app-adblock-fast
+SourceName: luci-app-adblock-fast
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1773709139
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 92160
+Filename: luci-app-adblock-fast_1.2.4-r4_all.ipk
+Size: 20453
+SHA256sum: c7ca0c474a176994281a3f94752bc62405c915117d21adc56dd66757e1b9e53a
+Description:  Provides Web UI for adblock-fast service.
+
+Package: luci-app-advanced-reboot
+Version: 1.1.2-r8
+Depends: libc, luci-base, jshn
+Source: /feed/luci/applications/luci-app-advanced-reboot
+SourceName: luci-app-advanced-reboot
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-advanced-reboot/
+CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-advanced-reboot-1.1.2-8.ipk
+Size: 13120
+SHA256sum: 12d0ad18cdc1f8e14d7b34b460b40de0847a2d6b8faf8afd0e285076d49cdf68
+Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
+
+Package: luci-app-https-dns-proxy
+Version: 2026.03.18-r5
+Depends: libc, luci-base, https-dns-proxy
+Source: /feed/luci/applications/luci-app-https-dns-proxy
+SourceName: luci-app-https-dns-proxy
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-https-dns-proxy-2026.03.18-5.ipk
+Size: 12401
+SHA256sum: a0841836f0070692d9f7fc555722b8b4b19eaa515ae2198d36a90fbff45f87cb
+Description:  Provides Web UI for DNS Over HTTPS Proxy
+
+Package: luci-app-pbr
+Version: 1.2.3-r71
+Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
+Source: /feed/luci/applications/luci-app-pbr
+SourceName: luci-app-pbr
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-pbr/
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 51200
+Filename: luci-app-pbr-1.2.3-71.ipk
+Size: 10470
+SHA256sum: b66b1a2d39405d5e21b6f5b41515e577c5c63010ca2e4a8f2635e6ea99dcdd8b
+Description:  Provides Web UI for Policy Based Routing Service.
+
+Package: luci-app-pbr
+Version: 1.2.3-r71
+Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
+Source: feeds/base/luci/applications/luci-app-pbr
+SourceName: luci-app-pbr
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1773709139
+URL: https://github.com/mossdef-org/luci-app-pbr/
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 51200
+Filename: luci-app-pbr_1.2.3-r71_all.ipk
+Size: 10529
+SHA256sum: 05d8c350c7e195cfe34e03713f1a3482ae2f6a846a0d5f66d40621488ec986e5
+Description:  Provides Web UI for Policy Based Routing Service.
+
+Package: luci-app-yaaw
+Version: 1.0.0-r3
+Depends: libc, luci-base
+Source: /feed/luci/applications/luci-app-yaaw
+SourceName: luci-app-yaaw
+License: AGPL-3.0-or-later
+Section: luci
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-yaaw/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 481280
+Filename: luci-app-yaaw-1.0.0-3.ipk
+Size: 127063
+SHA256sum: 328dba488cf9765462487215d151e142e8aecadb95211f16a9db54fa0d98f984
+Description:  Provides Web UI for Yet Another Aria2c.
+
+Package: moci-addon-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, moci, adblock-fast, rpcd-mod-ucode
+Source: /feed/moci-addon-adblock-fast
+SourceName: moci-addon-adblock-fast
+License: AGPL-3.0-or-later
+LicenseFiles: LICENSE
+Section: admin
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 92160
+Filename: moci-addon-adblock-fast-1.2.4-4.ipk
+Size: 22546
+SHA256sum: 8bfd70d2aac2703d9a6f417e270fdc4cdc5dbeb4f305f5437f78bd8d5032862e
+Description:  MoCI add-on providing a web UI for the adblock-fast service.
+ Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
+ rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
+ equivalent of luci-app-adblock-fast.
+
+Package: moci-addon-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, moci, adblock-fast, rpcd-mod-ucode
+Source: feeds/packages/stangri/moci-addon-adblock-fast
+SourceName: moci-addon-adblock-fast
+License: AGPL-3.0-or-later
+LicenseFiles: LICENSE
+Section: admin
+SourceDateEpoch: 1773709139
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 92160
+Filename: moci-addon-adblock-fast_1.2.4-r4_all.ipk
+Size: 22555
+SHA256sum: 25614336b10ff151d27f80b113a0e17218467473a9a787002d896a4273fd987d
+Description:  MoCI add-on providing a web UI for the adblock-fast service.
+ Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
+ rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
+ equivalent of luci-app-adblock-fast.
+
+Package: mwan4
+Version: 0.1.1-r4
+Depends: libc, conntrack, ip-full, jsonfilter, kmod-nft-core, kmod-nft-nat, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop, nftables-json, rpcd-mod-ucode
+Conflicts: mwan3
+Source: /feed/mwan4
+SourceName: mwan4
+License: AGPL-3.0-or-later
+Section: net
+SourceDateEpoch: 1779897308
+URL: https://github.com/mossdef-org/mwan4/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: arm_xscale
+Installed-Size: 143360
+Filename: mwan4-0.1.1-4.ipk
+Size: 29571
+SHA256sum: 1643a83fa3bcac4028ccbeb9fd74da622799decf97399e0e182b1f323fc7a79a
+Description:  Multiwan hotplug script with connection tracking support using nftables.
+ Supports loadbalancing/failover for up to 254 WAN interfaces with
+ firewall4/nftables integration.
+
+Package: pbr
+Version: 1.2.2-r19
+Depends: libc, ip-full, jshn, jsonfilter, resolveip, kmod-nft-core, kmod-nft-nat, nftables-json
+Source: /feed/pbr
+SourceName: pbr
+License: AGPL-3.0-or-later
+Section: net
+SourceDateEpoch: 1781604895
+URL: https://github.com/mossdef-org/pbr/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 163840
+Filename: pbr-1.2.2-19.ipk
+Size: 34075
+SHA256sum: 391318cffc584511357c3c1d20cdf0081eebb22ad7d6e258d03c28b7b35ea101
+Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
+ This version supports OpenWrt (23.05 and newer) with firewall4/nft.
+
+Package: pbr
+Version: 1.2.3-r71
+Depends: libc, ip-full, jshn, jsonfilter, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, kmod-nft-core, kmod-nft-nat, nftables-json
+Source: feeds/packages/stangri/pbr
+SourceName: pbr
+License: AGPL-3.0-or-later
+Section: net
+SourceDateEpoch: 1773709139
+URL: https://github.com/mossdef-org/pbr/
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: all
+Installed-Size: 225280
+Filename: pbr_1.2.3-r71_all.ipk
+Size: 45168
+SHA256sum: 29a66706f1a05b3188d83149db7a169787cdd1aaa101ec15a8f5a54fbec08dbc
+Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
+ This version supports OpenWrt (23.05 and newer) with firewall4/nft.
+
+Package: sunwait
+Version: 0.9.1-r2
+Depends: libc
+Source: /feed/sunwait
+SourceName: sunwait
+License: GPL-3.0
+LicenseFiles: LICENSE
+Section: util
+SourceDateEpoch: 1779897308
+URL: https://github.com/risacher/sunwait
+Maintainer: Stan Grishin <stangri@melmac.ca>
+Architecture: arm_xscale
+Installed-Size: 40960
+Filename: sunwait-0.9.1-2.ipk
+Size: 13986
+SHA256sum: e88c1f492b2cc34f129d349cf97e25bb63dcdf8bccac075574f9c7ecea6eea51
+Description:  Calculate sunrise and sunset, as well as civil, nautical, and astronomical twilights. 
+ Has features that make it useful for home automation tasks.
+
