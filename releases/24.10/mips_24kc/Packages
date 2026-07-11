@@ -57,8 +57,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
 Filename: luci-app-adblock-fast-1.2.4-4.ipk
-Size: 20403
-SHA256sum: 2e81e4e564998295af5ea0892b6e6b635374dbaf04cf3451e94a0da02ed7e654
+Size: 20452
+SHA256sum: b9b249416220a0b5f871c924e31ce4c5124a54befc47a3bda7260346ca4e361d
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-adblock-fast
