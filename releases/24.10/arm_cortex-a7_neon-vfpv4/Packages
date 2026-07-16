@@ -104,16 +104,16 @@ SHA256sum: e17cdd3ce67ac9dba775fcadb0d665f587c273295b465f90a7a699aed5cf155f
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-pbr
-Version: 1.2.2-r20
-Depends: libc, luci-base, jsonfilter, pbr
+Version: 1.2.3-r73
+Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
 License: AGPL-3.0-or-later
 Section: luci
 URL: https://github.com/mossdef-org/luci-app-pbr/
 Architecture: all
-Installed-Size: 61440
-Filename: luci-app-pbr-1.2.2-20.ipk
-Size: 11290
-SHA256sum: 04c28551ac69f4d9643680039a77e6b5a5c7a65c2e66ff5b7490b84e0ad5ec76
+Installed-Size: 51200
+Filename: luci-app-pbr-1.2.3-73.ipk
+Size: 10467
+SHA256sum: 80a04f8e1bdc195453d8bfc6c716ef7c7fea7d19da92724927e7e2cdbc25cf32
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
