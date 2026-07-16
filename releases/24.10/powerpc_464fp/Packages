@@ -117,16 +117,16 @@ SHA256sum: 04c28551ac69f4d9643680039a77e6b5a5c7a65c2e66ff5b7490b84e0ad5ec76
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
-Version: 1.2.3-r71
+Version: 1.2.3-r73
 Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
 License: AGPL-3.0-or-later
 Section: luci
 URL: https://github.com/mossdef-org/luci-app-pbr/
 Architecture: all
 Installed-Size: 51200
-Filename: luci-app-pbr_1.2.3-r71_all.ipk
-Size: 10529
-SHA256sum: 05d8c350c7e195cfe34e03713f1a3482ae2f6a846a0d5f66d40621488ec986e5
+Filename: luci-app-pbr_1.2.3-r73_all.ipk
+Size: 10476
+SHA256sum: 2c9396c8e590bbd1a54bbd019efcd2af174ce377d6e1f71d64317a3d05f7ef7c
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-yaaw
@@ -221,16 +221,16 @@ Description:  This service enables policy-based routing for WAN interfaces and v
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
 Package: pbr
-Version: 1.2.3-r71
+Version: 1.2.3-r73
 Depends: libc, ip-full, jshn, jsonfilter, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, kmod-nft-core, kmod-nft-nat, nftables-json
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/pbr/
 Architecture: all
 Installed-Size: 225280
-Filename: pbr_1.2.3-r71_all.ipk
-Size: 45168
-SHA256sum: 29a66706f1a05b3188d83149db7a169787cdd1aaa101ec15a8f5a54fbec08dbc
+Filename: pbr_1.2.3-r73_all.ipk
+Size: 45137
+SHA256sum: 2e2134b52611215077adec6aaf288256943ffd6c0c289d053dc58b35b7d35b4a
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
