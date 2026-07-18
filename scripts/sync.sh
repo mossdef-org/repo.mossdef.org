@@ -63,13 +63,30 @@ command -v python3 >/dev/null 2>&1   || die "python3 not found"
 # per-repo `branch` and `only_2512` overrides (defaults: main / "25.12,24.10").
 discover(){
   python3 - <<'PY'
-import os, json, subprocess, sys
+import os, json, subprocess, sys, time
 
 org = os.environ["ORG"]; wf = os.environ["WORKFLOW"]; yml = os.environ["PACKAGES_YML"]
 
 def gh(*args):
     r = subprocess.run(["gh", *args], capture_output=True, text=True)
     return r.stdout if r.returncode == 0 else ""
+
+# Like gh(), but for calls where an empty result is meaningful (the org repo
+# enumeration below): retries transient API failures with backoff and returns
+# the parsed JSON, or None if every attempt failed. Without this a single API
+# blip yields an empty work-list and aborts the whole sync ("no packages
+# discovered") even though the very next scheduled run recovers on its own.
+def gh_json(*args, retries=4):
+    for attempt in range(retries):
+        r = subprocess.run(["gh", *args], capture_output=True, text=True)
+        if r.returncode == 0:
+            try:
+                return json.loads(r.stdout) if r.stdout.strip() else []
+            except json.JSONDecodeError:
+                pass
+        if attempt < retries - 1:
+            time.sleep(2 ** attempt)
+    return None
 
 # minimal YAML reader for our tiny, flat exceptions file (no external yq dependency).
 # Inline comments are stripped, so `exclude:  # note` is still recognised.
@@ -94,15 +111,16 @@ def load_yaml(path):
 
 exc = load_yaml(yml)
 
-# list all org repos with their default branch (paginated)
+# list all org repos with their default branch (paginated). A persistent
+# failure here must abort loudly rather than silently yield zero repos — an
+# empty enumeration is indistinguishable from "no packages" downstream.
 repos = {}
 page = 1
 while True:
-    out = gh("api", f"/orgs/{org}/repos?per_page=100&page={page}")
-    try:
-        arr = json.loads(out) if out else []
-    except json.JSONDecodeError:
-        arr = []
+    arr = gh_json("api", f"/orgs/{org}/repos?per_page=100&page={page}")
+    if arr is None:
+        sys.stderr.write(f"discover: org repo enumeration failed (page {page}) after retries\n")
+        sys.exit(3)
     if not arr:
         break
     for r in arr:
