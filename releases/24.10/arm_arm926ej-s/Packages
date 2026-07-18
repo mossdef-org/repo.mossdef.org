@@ -71,8 +71,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
 Filename: luci-app-adblock-fast_1.2.4-r4_all.ipk
-Size: 20453
-SHA256sum: c7ca0c474a176994281a3f94752bc62405c915117d21adc56dd66757e1b9e53a
+Size: 20414
+SHA256sum: 60461414c75e0117bfca1e87ffc9382b832069ca7dbe4df714b37a3881285ec7
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-advanced-reboot
@@ -185,6 +185,22 @@ Installed-Size: 92160
 Filename: moci-app-adblock-fast-1.2.4-4.ipk
 Size: 22540
 SHA256sum: 0d3387cab5e1ff294f4806a936bbe53c1c505a788e26387d776ea0d320428a64
+Description:  MoCI add-on providing a web UI for the adblock-fast service.
+ Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
+ rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
+ equivalent of luci-app-adblock-fast.
+
+Package: moci-app-adblock-fast
+Version: 1.2.4-r4
+Depends: libc, moci, adblock-fast, rpcd-mod-ucode
+License: AGPL-3.0-or-later
+Section: admin
+URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+Architecture: all
+Installed-Size: 92160
+Filename: moci-app-adblock-fast_1.2.4-r4_all.ipk
+Size: 22550
+SHA256sum: e364118d78384610b16095080769a4787406d1260db216c98fd9898a2b0a8d9b
 Description:  MoCI add-on providing a web UI for the adblock-fast service.
  Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
  rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
