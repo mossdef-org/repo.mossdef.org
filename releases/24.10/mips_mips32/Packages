@@ -16,7 +16,7 @@ Description:  Fast AdBlocking script to block ad or abuse/malware domains with D
 
 Package: adblock-fast
 Version: 1.2.4-r4
-Depends: libc, curl, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
+Depends: libc, curl, ip, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/adblock-fast/
@@ -24,8 +24,8 @@ CPE-ID: cpe:/a:mossdef:adblock-fast
 Architecture: all
 Installed-Size: 143360
 Filename: adblock-fast_1.2.4-r4_all.ipk
-Size: 31397
-SHA256sum: d935edc05fe60b3ae458781e380c6c2775398891ff9e6146339dbf0416d83444
+Size: 31625
+SHA256sum: 51fac2bd231398fbfb154d328ca387f19fb84c410126a122bd87ad81e79e515e
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
@@ -66,13 +66,13 @@ Version: 1.2.4-r4
 Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+URL: https://docs.mossdef.org/adblock-fast/
 CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
 Filename: luci-app-adblock-fast_1.2.4-r4_all.ipk
-Size: 20414
-SHA256sum: 60461414c75e0117bfca1e87ffc9382b832069ca7dbe4df714b37a3881285ec7
+Size: 20392
+SHA256sum: 74b9d301cde2e648c19c6a9783dd6eb54d17fcd56fcfbf09791b76f61861226f
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-advanced-reboot
