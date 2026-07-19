@@ -108,12 +108,12 @@ Version: 1.2.3-r73
 Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://github.com/mossdef-org/luci-app-pbr/
+URL: https://docs.mossdef.org/pbr/
 Architecture: all
 Installed-Size: 51200
 Filename: luci-app-pbr-1.2.3-73.ipk
-Size: 10467
-SHA256sum: 80a04f8e1bdc195453d8bfc6c716ef7c7fea7d19da92724927e7e2cdbc25cf32
+Size: 10461
+SHA256sum: a4a4d2567885b68c991b9c2307e17b41a95fc9a340f85775f0ce9018620116e0
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
