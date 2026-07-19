@@ -339,7 +339,7 @@ until git push -q origin main; do
     mapfile -t conflicted < <(git diff --name-only --diff-filter=U)
     bad="$(printf '%s\n' "${conflicted[@]}" | grep -vE '/(packages\.adb|Packages|Packages\.gz|Packages\.sig)$' || true)"
     [ -n "$bad" ] && { git rebase --abort; die "unexpected non-index rebase conflict:"$'\n'"${bad}"; }
-    mapfile -t redirs < <(printf '%s\n' "${conflicted[@]}" | awk -F/ 'NF{NF--; print}' | sort -u)
+    mapfile -t redirs < <(printf '%s\n' "${conflicted[@]}" | awk -v OFS=/ -F/ 'NF{NF--; print}' | sort -u)
     for rel in "${redirs[@]}"; do
       [ -n "$rel" ] || continue
       archdir="${REPO_DIR}/${rel}/"
