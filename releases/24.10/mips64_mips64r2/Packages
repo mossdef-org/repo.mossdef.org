@@ -80,13 +80,13 @@ Version: 1.1.2-r8
 Depends: libc, luci-base, jshn
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://github.com/mossdef-org/luci-app-advanced-reboot/
+URL: https://docs.mossdef.org/luci-app-advanced-reboot/
 CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
 Architecture: all
 Installed-Size: 71680
 Filename: luci-app-advanced-reboot-1.1.2-8.ipk
-Size: 13120
-SHA256sum: 12d0ad18cdc1f8e14d7b34b460b40de0847a2d6b8faf8afd0e285076d49cdf68
+Size: 13112
+SHA256sum: bf454b12bb97311b9458f6877ae25f452d3f6e711253972bbfcc484ee5728e24
 Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
 
 Package: luci-app-https-dns-proxy
