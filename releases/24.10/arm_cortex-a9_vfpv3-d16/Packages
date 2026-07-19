@@ -52,13 +52,13 @@ Version: 1.2.4-r4
 Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://github.com/mossdef-org/luci-app-adblock-fast/
+URL: https://docs.mossdef.org/adblock-fast/
 CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
 Filename: luci-app-adblock-fast-1.2.4-4.ipk
-Size: 20413
-SHA256sum: 2e7ffa183323d165eba2244fc74ff7337638939e4dbb097d550d4892c8275e5a
+Size: 20411
+SHA256sum: 52ede66e0a3b5c48dab5cfcb4033f945ac380c31db20b2c4c058829d57dbfc38
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-adblock-fast
@@ -94,13 +94,13 @@ Version: 2026.05.06-r1
 Depends: libc, luci-base, https-dns-proxy
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://github.com/mossdef-org/luci-app-https-dns-proxy/
+URL: https://docs.mossdef.org/https-dns-proxy/
 CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
 Architecture: all
 Installed-Size: 71680
 Filename: luci-app-https-dns-proxy-2026.05.06-1.ipk
-Size: 12605
-SHA256sum: e17cdd3ce67ac9dba775fcadb0d665f587c273295b465f90a7a699aed5cf155f
+Size: 12603
+SHA256sum: 66a43034b35656cb7e5c0d028622d5c49922769e24810e764c0ee544f0593f15
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-pbr
