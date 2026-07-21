@@ -31,7 +31,7 @@ Description:  Fast AdBlocking script to block ad or abuse/malware domains with D
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
 
 Package: https-dns-proxy
-Version: 2026.05.06-r1
+Version: 2026.07.21-r1
 Depends: libc, libcares, libcurl4, libev, ca-bundle, jsonfilter, resolveip
 Conflicts: https_dns_proxy
 License: MIT
@@ -40,9 +40,9 @@ URL: https://github.com/mossdef-org/https-dns-proxy/
 CPE-ID: cpe:/a:mossdef:https-dns-proxy
 Architecture: mipsel_24kc
 Installed-Size: 102400
-Filename: https-dns-proxy-2026.05.06-1.ipk
-Size: 32942
-SHA256sum: 4b584286e042b692ff809c4ebf55bd58d1008735290c7fc5dc6cacf3fe4c8f99
+Filename: https-dns-proxy-2026.07.21-1.ipk
+Size: 34489
+SHA256sum: b1952a3c412d7a7730207229b6f9d25e0bb7d8677158432be0c0b0ad1a3a937d
 Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
  It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
  Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
