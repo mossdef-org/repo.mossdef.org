@@ -90,7 +90,7 @@ SHA256sum: bf454b12bb97311b9458f6877ae25f452d3f6e711253972bbfcc484ee5728e24
 Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
 
 Package: luci-app-https-dns-proxy
-Version: 2026.05.06-r1
+Version: 2026.07.21-r1
 Depends: libc, luci-base, https-dns-proxy
 License: AGPL-3.0-or-later
 Section: luci
@@ -98,9 +98,9 @@ URL: https://docs.mossdef.org/https-dns-proxy/
 CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
 Architecture: all
 Installed-Size: 71680
-Filename: luci-app-https-dns-proxy-2026.05.06-1.ipk
-Size: 12603
-SHA256sum: 66a43034b35656cb7e5c0d028622d5c49922769e24810e764c0ee544f0593f15
+Filename: luci-app-https-dns-proxy-2026.07.21-1.ipk
+Size: 12606
+SHA256sum: 6ca7f1740792fb541d66b479a212247c7b3bac73da1c30dc4b8883cb3f4351c6
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-pbr
