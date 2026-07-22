@@ -112,8 +112,8 @@ URL: https://docs.mossdef.org/pbr/
 Architecture: all
 Installed-Size: 51200
 Filename: luci-app-pbr-1.2.3-73.ipk
-Size: 10461
-SHA256sum: a4a4d2567885b68c991b9c2307e17b41a95fc9a340f85775f0ce9018620116e0
+Size: 10493
+SHA256sum: 16f7813189500ffd17fdfce1a90a7a5b0438521bd7e54ee64ff64c150d69bc89
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
@@ -231,8 +231,8 @@ URL: https://github.com/mossdef-org/pbr/
 Architecture: all
 Installed-Size: 225280
 Filename: pbr-1.2.3-73.ipk
-Size: 45173
-SHA256sum: e49ed001d5ec2e213067ced198f96360ae95e9f08bb6f235fef6af92416b3a70
+Size: 45259
+SHA256sum: 270cb2a8dcf6264e4fc687ce59866c5288d3e11f04f676898d146bed05c7dab3
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
