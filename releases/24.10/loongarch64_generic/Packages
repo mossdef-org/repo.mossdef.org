@@ -15,17 +15,17 @@ Description:  Fast AdBlocking script to block ad or abuse/malware domains with D
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
 
 Package: adblock-fast
-Version: 1.2.4-r4
+Version: 1.2.5-r1
 Depends: libc, curl, ip, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-uloop
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/adblock-fast/
 CPE-ID: cpe:/a:mossdef:adblock-fast
 Architecture: all
-Installed-Size: 143360
-Filename: adblock-fast_1.2.4-r4_all.ipk
-Size: 31625
-SHA256sum: 51fac2bd231398fbfb154d328ca387f19fb84c410126a122bd87ad81e79e515e
+Installed-Size: 153600
+Filename: adblock-fast_1.2.5-r1_all.ipk
+Size: 33941
+SHA256sum: a4b6fe7b6d589f7274a5686de35fba6544c6040c314c76d8d72e6ee90c5bfed3
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
@@ -62,7 +62,7 @@ SHA256sum: e807de52bbf96ce8b85946a6d5e2c9daf66897b7130281053e661faa0932985c
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-adblock-fast
-Version: 1.2.4-r4
+Version: 1.2.5-r1
 Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
 License: AGPL-3.0-or-later
 Section: luci
@@ -70,9 +70,9 @@ URL: https://docs.mossdef.org/adblock-fast/
 CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
-Filename: luci-app-adblock-fast_1.2.4-r4_all.ipk
-Size: 20392
-SHA256sum: 74b9d301cde2e648c19c6a9783dd6eb54d17fcd56fcfbf09791b76f61861226f
+Filename: luci-app-adblock-fast_1.2.5-r1_all.ipk
+Size: 20584
+SHA256sum: e33f3f2744bcbce139fde5406d98404e781d1255e4a7022029ad8f739a860853
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-advanced-reboot
@@ -191,16 +191,16 @@ Description:  MoCI add-on providing a web UI for the adblock-fast service.
  equivalent of luci-app-adblock-fast.
 
 Package: moci-app-adblock-fast
-Version: 1.2.4-r4
+Version: 1.2.5-r1
 Depends: libc, moci, adblock-fast, rpcd-mod-ucode
 License: AGPL-3.0-or-later
 Section: admin
 URL: https://github.com/mossdef-org/luci-app-adblock-fast/
 Architecture: all
 Installed-Size: 92160
-Filename: moci-app-adblock-fast_1.2.4-r4_all.ipk
+Filename: moci-app-adblock-fast_1.2.5-r1_all.ipk
 Size: 22550
-SHA256sum: e364118d78384610b16095080769a4787406d1260db216c98fd9898a2b0a8d9b
+SHA256sum: 186ef229d5f5359def6e0e066f40a4599f6442ea204d3ea850128c75a023ca89
 Description:  MoCI add-on providing a web UI for the adblock-fast service.
  Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
  rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
