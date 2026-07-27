@@ -32,8 +32,8 @@ Maintainer: Stan Grishin <stangri@melmac.ca>
 Architecture: all
 Installed-Size: 153600
 Filename: adblock-fast_1.2.5-r3_all.ipk
-Size: 34870
-SHA256sum: f271586e0fe5cf6b00e9bb99f0dfbb6b86e2cb26895a7778ba4484a927d65e19
+Size: 34885
+SHA256sum: ac1fbea3a1c69c1d730fbe701ae3ab252963ffd4d4d5a8274cd4cbd164f63bbf
 Description:  Fast AdBlocking script to block ad or abuse/malware domains with Dnsmasq, SmartDNS or Unbound.
  Script supports local/remote list of domains and hosts-files for both block-listing and allow-listing.
  Please see https://docs.mossdef.org/adblock-fast/ for more information.
