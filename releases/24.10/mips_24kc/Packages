@@ -89,6 +89,20 @@ Size: 13112
 SHA256sum: bf454b12bb97311b9458f6877ae25f452d3f6e711253972bbfcc484ee5728e24
 Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
 
+Package: luci-app-advanced-reboot
+Version: 1.1.2-r9
+Depends: libc, luci-base, jshn
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://docs.mossdef.org/luci-app-advanced-reboot/
+CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-advanced-reboot_1.1.2-r9_all.ipk
+Size: 13144
+SHA256sum: e974951df5dfb2b16c405c140324656a1251c7f1d4a0ba06e93de8d0db41bdb0
+Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
+
 Package: luci-app-https-dns-proxy
 Version: 2026.07.21-r1
 Depends: libc, luci-base, https-dns-proxy
@@ -199,8 +213,8 @@ URL: https://github.com/mossdef-org/luci-app-adblock-fast/
 Architecture: all
 Installed-Size: 92160
 Filename: moci-app-adblock-fast_1.2.5-r3_all.ipk
-Size: 22550
-SHA256sum: 25ab2d34e6d66fb8e115628c64ec6db2c51b548ddd3e9bdde77421d926d94be7
+Size: 22516
+SHA256sum: 2089181df57c155076c95bec1cccb1e2ceded812a4aee5d61e19db7315f7c86d
 Description:  MoCI add-on providing a web UI for the adblock-fast service.
  Ships its own rpcd ucode backend (ubus object moci.adblock-fast) and an
  rpcd ACL, so it drives adblock-fast without LuCI installed. The MoCI
