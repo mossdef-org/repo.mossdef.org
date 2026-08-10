@@ -76,7 +76,7 @@ SHA256sum: ea8918176943e9b67cc3c5e32c1d8cc826b30a11dda506dac3b1e4fc545c0f70
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-advanced-reboot
-Version: 1.1.2-r8
+Version: 1.1.2-r9
 Depends: libc, luci-base, jshn
 License: AGPL-3.0-or-later
 Section: luci
@@ -84,9 +84,9 @@ URL: https://docs.mossdef.org/luci-app-advanced-reboot/
 CPE-ID: cpe:/a:mossdef:luci-app-advanced-reboot
 Architecture: all
 Installed-Size: 71680
-Filename: luci-app-advanced-reboot-1.1.2-8.ipk
-Size: 13112
-SHA256sum: bf454b12bb97311b9458f6877ae25f452d3f6e711253972bbfcc484ee5728e24
+Filename: luci-app-advanced-reboot-1.1.2-9.ipk
+Size: 13135
+SHA256sum: 46c6176b3a19339c6a2a189a54b0df1efd7c4665f9ba8a7c600c7d1c273e9b8c
 Description:  Provides Web UI (found under System/Advanced Reboot) to reboot supported Linksys and ZyXEL routers to an alternative partition. Also provides Web UI to shut down (power off) your device. Supported dual-partition routers are listed at https://docs.mossdef.org/luci-app-advanced-reboot/
 
 Package: luci-app-advanced-reboot
