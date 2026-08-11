@@ -41,8 +41,8 @@ CPE-ID: cpe:/a:mossdef:https-dns-proxy
 Architecture: mipsel_mips32
 Installed-Size: 102400
 Filename: https-dns-proxy-2026.07.21-1.ipk
-Size: 35706
-SHA256sum: 9b1813ab94464bbfbc7b10bf278919b95e8a5427fa2b5b3ba323780c640b28f1
+Size: 35900
+SHA256sum: c6a02df5d244c6cc015a8bbeb069f7420f3c16c2d5412026603261d9cec79b37
 Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
  It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
  Please see https://docs.mossdef.org/https-dns-proxy/ for more information.

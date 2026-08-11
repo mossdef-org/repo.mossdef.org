@@ -41,8 +41,8 @@ CPE-ID: cpe:/a:mossdef:https-dns-proxy
 Architecture: powerpc_8548
 Installed-Size: 174080
 Filename: https-dns-proxy-2026.07.21-1.ipk
-Size: 39264
-SHA256sum: a6de63a57c2e187afd95ca592ee42390603e8167264f5eb5f0ee45258456c490
+Size: 39469
+SHA256sum: d3ba47d2600eb3efe36c5095786af9502f486fd0a0018ed6a2d412afb2f54607
 Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
  It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
  Please see https://docs.mossdef.org/https-dns-proxy/ for more information.

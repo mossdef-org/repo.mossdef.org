@@ -41,8 +41,8 @@ CPE-ID: cpe:/a:mossdef:https-dns-proxy
 Architecture: aarch64_cortex-a53
 Installed-Size: 174080
 Filename: https-dns-proxy-2026.07.21-1.ipk
-Size: 36508
-SHA256sum: a716a9840023092d3a4642bedb0b88f3ecc8ee95ab94afa30cd5934e509d784f
+Size: 36732
+SHA256sum: 6eedd112f9d8029dd467b1e21dd1065e479d560d93c1752045ce834264a431d4
 Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
  It receives regular, unencrypted (UDP) DNS requests and resolves them via DoH resolver.
  Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
