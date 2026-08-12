@@ -117,6 +117,20 @@ Size: 12606
 SHA256sum: 6ca7f1740792fb541d66b479a212247c7b3bac73da1c30dc4b8883cb3f4351c6
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
+Package: luci-app-https-dns-proxy
+Version: 2026.07.21-r1
+Depends: libc, luci-base, https-dns-proxy
+License: AGPL-3.0-or-later
+Section: luci
+URL: https://docs.mossdef.org/https-dns-proxy/
+CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
+Architecture: all
+Installed-Size: 71680
+Filename: luci-app-https-dns-proxy_2026.07.21-r1_all.ipk
+Size: 12627
+SHA256sum: a15a7212dc0cfb92292a91f5548e7dd8613618a6ed480f3ec144f14985c1f701
+Description:  Provides Web UI for DNS Over HTTPS Proxy
+
 Package: luci-app-pbr
 Version: 1.2.3-r83
 Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
