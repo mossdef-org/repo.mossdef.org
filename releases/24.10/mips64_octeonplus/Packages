@@ -113,8 +113,8 @@ CPE-ID: cpe:/a:mossdef:luci-app-https-dns-proxy
 Architecture: all
 Installed-Size: 71680
 Filename: luci-app-https-dns-proxy-2026.07.21-1.ipk
-Size: 12606
-SHA256sum: 6ca7f1740792fb541d66b479a212247c7b3bac73da1c30dc4b8883cb3f4351c6
+Size: 12626
+SHA256sum: bf99339975fc24faf1f34792ba814b2d4a73cc229c5fe73374f1d32099b7bd23
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-https-dns-proxy
