@@ -140,8 +140,8 @@ URL: https://docs.mossdef.org/pbr/
 Architecture: all
 Installed-Size: 51200
 Filename: luci-app-pbr-1.2.3-83.ipk
-Size: 10928
-SHA256sum: 1629eee9ebabbcad5bde3d415ac59eaf703ba0360fe7bb00b1e1950d00607b7e
+Size: 10859
+SHA256sum: 316c79cf4675fae9a191254bdce08dd92c2dd8c182a174003d2e77c4cabbea4e
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
