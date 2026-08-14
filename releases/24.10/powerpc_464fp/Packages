@@ -132,16 +132,16 @@ SHA256sum: a15a7212dc0cfb92292a91f5548e7dd8613618a6ed480f3ec144f14985c1f701
 Description:  Provides Web UI for DNS Over HTTPS Proxy
 
 Package: luci-app-pbr
-Version: 1.2.3-r85
-Depends: libc, luci-base, jsonfilter, rpcd-mod-ucode, pbr
+Version: 1.2.2-r22
+Depends: libc, luci-base, jsonfilter, pbr
 License: AGPL-3.0-or-later
 Section: luci
-URL: https://docs.mossdef.org/pbr/
+URL: https://github.com/mossdef-org/luci-app-pbr/
 Architecture: all
-Installed-Size: 51200
-Filename: luci-app-pbr-1.2.3-85.ipk
-Size: 10964
-SHA256sum: 0005b02b01e3bb11247ef45ccf869dbb3e496a241eea7a873d6c512e1dd4530b
+Installed-Size: 61440
+Filename: luci-app-pbr-1.2.2-22.ipk
+Size: 11296
+SHA256sum: 92766bca1d08b874a2c47df8fda5c18072bb63210c0126ac6064b9736d5a7c4c
 Description:  Provides Web UI for Policy Based Routing Service.
 
 Package: luci-app-pbr
@@ -251,16 +251,16 @@ Description:  Multiwan hotplug script with connection tracking support using nft
  firewall4/nftables integration.
 
 Package: pbr
-Version: 1.2.3-r85
-Depends: libc, ip-full, jshn, jsonfilter, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, kmod-nft-core, kmod-nft-nat, nftables-json
+Version: 1.2.2-r22
+Depends: libc, ip-full, jshn, jsonfilter, resolveip, kmod-nft-core, kmod-nft-nat, nftables-json
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/pbr/
 Architecture: all
-Installed-Size: 225280
-Filename: pbr-1.2.3-85.ipk
-Size: 47367
-SHA256sum: 5d89fd7cd43cf710f6acf376d23c5f5f85429a4fea0d964bed593321334aa64d
+Installed-Size: 163840
+Filename: pbr-1.2.2-22.ipk
+Size: 34155
+SHA256sum: b2ecdb29f27dde608c6bfbcde7ea9d0edf5acbd21af811fdb150fbafe1dc0a08
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
