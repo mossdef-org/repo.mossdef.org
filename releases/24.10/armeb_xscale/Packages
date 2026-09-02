@@ -251,16 +251,16 @@ Description:  Multiwan hotplug script with connection tracking support using nft
  firewall4/nftables integration.
 
 Package: pbr
-Version: 1.2.3-r95
+Version: 1.2.3-r97
 Depends: libc, ip-full, jshn, jsonfilter, resolveip, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, kmod-nft-core, kmod-nft-nat, nftables-json
 License: AGPL-3.0-or-later
 Section: net
 URL: https://github.com/mossdef-org/pbr/
 Architecture: all
 Installed-Size: 266240
-Filename: pbr-1.2.3-95.ipk
-Size: 60400
-SHA256sum: 53bfb81868920a4ac80476e1ee79b3fe467b1a438965a53fba69d60a52565535
+Filename: pbr-1.2.3-97.ipk
+Size: 60401
+SHA256sum: a9fa28602a642d637ce0b6eb32a8335d100b0e7e6fe623854cd6d8b3e25be82a
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
