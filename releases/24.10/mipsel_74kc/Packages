@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: mipsel_74kc
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29156
-SHA256sum: badeab10a13bf7536781ab8c1607e93db474ddf39582a023623f532e8fd6f8f9
+Size: 29178
+SHA256sum: c4c0d306ab9c97071d6ceebb3f1e8667f173be37e095c2802f1698e51d55480a
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.

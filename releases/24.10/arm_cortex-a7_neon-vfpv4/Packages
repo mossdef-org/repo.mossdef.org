@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: arm_cortex-a7_neon-vfpv4
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29584
-SHA256sum: 93bf0f01cc8e0b47fa17716c65fc5d9ac1a60bce8a40b4f0be78c7831def3abf
+Size: 29607
+SHA256sum: c863f71232b245cca9b986a7fdda1bfb57682ef02dafbfcb4bd66f4da69e588f
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.

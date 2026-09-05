@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: arm_cortex-a9
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29578
-SHA256sum: e60881aff2812659328015c1b1a11029b7963b98b5b060d1ce284d9d9f783b7b
+Size: 29594
+SHA256sum: 9dd4fd263ac717398a8f975dfb99dc30f3727d02c6084316e8a58646710b05d9
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.
