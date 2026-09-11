@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: riscv64_riscv64
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29827
-SHA256sum: c4a16245526a133c41195d8687b33dcf6ac9134c6797b184866b65fe23a804f4
+Size: 30080
+SHA256sum: 77805e074486a5ff4581157ea9fd3adb8f5df591a7f15f5db51decd9e1fd3d5c
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.

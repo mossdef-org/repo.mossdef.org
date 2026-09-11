@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: armeb_xscale
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29609
-SHA256sum: 579fce9debb7a2962796ecdf473840c0c094446647a5c135272f745032cc6d48
+Size: 29865
+SHA256sum: 2b22f86118acfb02610ee653a6585fcebb25366dc3b15697be2a22860b31d537
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.

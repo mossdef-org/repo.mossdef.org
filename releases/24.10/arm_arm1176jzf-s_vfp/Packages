@@ -244,8 +244,8 @@ URL: https://github.com/mossdef-org/mwan4/
 Architecture: arm_arm1176jzf-s_vfp
 Installed-Size: 143360
 Filename: mwan4-0.1.1-4.ipk
-Size: 29597
-SHA256sum: a1e67840af4be66cf4d25b25f33fefb4e4ab659d5fd4369d184f6cf2bf5b3282
+Size: 29845
+SHA256sum: c92d86e2d34b7cafd03ecae52740b060c115279c42bd5f0e1df9feda1be27cd9
 Description:  Multiwan hotplug script with connection tracking support using nftables.
  Supports loadbalancing/failover for up to 254 WAN interfaces with
  firewall4/nftables integration.
