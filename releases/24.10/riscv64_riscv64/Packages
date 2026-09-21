@@ -48,7 +48,7 @@ Description:  Light-weight DNS-over-HTTPS, non-caching translation proxy for the
  Please see https://docs.mossdef.org/https-dns-proxy/ for more information.
 
 Package: luci-app-adblock-fast
-Version: 1.2.5-r4
+Version: 1.2.5-r5
 Depends: libc, luci-base, adblock-fast, rpcd-mod-ucode
 License: AGPL-3.0-or-later
 Section: luci
@@ -56,9 +56,9 @@ URL: https://docs.mossdef.org/adblock-fast/
 CPE-ID: cpe:/a:mossdef:luci-app-adblock-fast
 Architecture: all
 Installed-Size: 92160
-Filename: luci-app-adblock-fast-1.2.5-4.ipk
-Size: 20664
-SHA256sum: 5ce481ac9ca9a0d363c7679c2924cfada3b704419b6fcc2b1b0f53addb7880b0
+Filename: luci-app-adblock-fast-1.2.5-5.ipk
+Size: 20728
+SHA256sum: 154c8c0b3457f3253dcbe86728deac9ee7d90ea083b999f7b2d1ff04b7791946
 Description:  Provides Web UI for adblock-fast service.
 
 Package: luci-app-adblock-fast
