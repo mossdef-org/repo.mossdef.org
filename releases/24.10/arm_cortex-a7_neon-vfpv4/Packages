@@ -259,8 +259,8 @@ URL: https://github.com/mossdef-org/pbr/
 Architecture: all
 Installed-Size: 276480
 Filename: pbr-1.2.4-0.ipk
-Size: 65433
-SHA256sum: d4023424105055541a375b0a1c9366b615ba6b071a7f835805e73aff16a6e855
+Size: 65489
+SHA256sum: 244de69c0584e271e389ed0f82b711d4015bb4f27c3c270889a92254850301b9
 Description:  This service enables policy-based routing for WAN interfaces and various VPN tunnels.
  This version supports OpenWrt (23.05 and newer) with firewall4/nft.
 
